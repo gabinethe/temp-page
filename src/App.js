@@ -1,5 +1,6 @@
 import "./App.css";
 import { useState } from "react";
+// import Background from "./Assets/Images/Mário Mundi.png";
 // import Card from "./Components/Card/Card";
 
 function App() {
@@ -7,14 +8,12 @@ function App() {
   const [descricao, setDescricao] = useState("");
   const [cidade, setCidade] = useState("São Paulo");
 
-  const key = "5c3a255d1b982d430759586a662da1f1";
-
   const callApi = () => {
     //api openweather
 
     console.log("vai dar um salve na Api Temperatura");
     fetch(
-      `"https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt_br&appid=${key}&units=metric"`
+      `"https://api.openweathermap.org/data/2.5/weather?q=${cidade}&lang=pt_br&appid=5c3a255d1b982d430759586a662da1f1&units=metric"`
     )
       .then((resposta) => {
         return resposta.json();
@@ -27,27 +26,32 @@ function App() {
       .catch(() => {
         alert("cidade não encontrada");
       });
-    }
-    const dadoEntrada = (evento) => {
-      setCidade(evento.target.value); // consigo pegar a tecla
-    };
+  };
+  const dadoEntrada = (evento) => {
+    setCidade(evento.target.value); // consigo pegar a tecla
+  };
 
-    return (
-      <div className="App">
+  return (
+    <div className="App">
+      <div className="search">
         <input
+          className="barra"
           placeholder="Buscar Local"
           type="text"
           onChange={dadoEntrada}
         ></input>
-''
-        <button onClick={callApi}>Buscar</button>
+        <button className="Butao" onClick={callApi}>
+          Buscar
+        </button>
+      </div>
+      <div className="temp">
         <p>{cidade}</p>
         <p>{stateTemperatura}</p>
         <p>{descricao}</p>
       </div>
-    );
-  };
-
+    </div>
+  );
+}
 
 export default App;
 

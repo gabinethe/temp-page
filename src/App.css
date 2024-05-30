@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+}
+.App {
+  background-image: url(./Assets/Images/Mário\ Mundi.png);
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.barra {
+  width: 400px;
+  height: 60px;
+  padding-left: 30px;
+}
+
+.Butao{
+    width: 100px;
+    height: 60px;
+    padding: 0px;
+}
