@@ -56,22 +56,26 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-      <h1>Clima Tempo</h1>
-      </header>
-      <div id="barra">
+      <header><h1>Clima Tempo</h1></header>
+
+      <div id="principal">
+        <div id="text">
         <h2>Digite abaixo o nome da cidade que deseja buscar</h2>
+        <div id="campo-busca">
       <input type="text" placeholder="Buscar Cidade" onChange={dadoEntrada}></input>
       <button onClick={callApi}>Buscar</button>
-      </div>
+        </div>
       <h1>Temperatura atual</h1>
       <Card diaDaSemana={"Hoje"} cidade={cidade} temperatura={stateTemperatura + "°"} descricao={descricao}></Card>
+      </div>
+      </div>
+
+      <div id="container">
       <h1>Próximos cinco dias</h1>
-      <div style={{ display: "flex" }}>
+      <div id="previsao">
         {[...Array(5)].map((_, index) => {
           return (
-            <Card
-              key={index}
+            <Card key={index}
               diaDaSemana={diasSemana[currentDay + index + 1]}
               cidade={cidade}
               temperatura={previsao[index] ? previsao[index].temp + "°" : ""}
@@ -79,6 +83,7 @@ function App() {
             ></Card>
           );
         })}
+        </div>
       </div>
     </div>
   );
